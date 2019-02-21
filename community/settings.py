@@ -39,7 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'authentication',
+    'crispy_forms',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+# 这个第三方插件在模板引用时只需在模板头部加入{% load crispy_forms_tags %}，使用时在表单后面选择自己喜欢的样式，
+# 例如：{{ form | crispy }}。
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
