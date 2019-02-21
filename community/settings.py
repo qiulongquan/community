@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'home',
     'authentication',
     'crispy_forms',
+    'user_profile',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -61,7 +62,7 @@ ROOT_URLCONF = 'community.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -130,6 +131,16 @@ AUTH_PASSWORD_VALIDATORS = [
 # 指定项目用户模型
 # 最后，在根目录community\settings.py中将默认用户模型指定为自定义模型：
 AUTH_USER_MODEL = 'authentication.User'
+
+# django.contrib.auth.urls
+# 用于使用了 Django 自带的用户认证模块auth_views中的LoginView和LogoutView，
+# 在community/settings.py中需要指定其url和完成操作后的重定向操作：
+
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
