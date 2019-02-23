@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block title %} Community > {{ user.username }} {% endblock %}
+
+{% block head %}
+  <link href="{% static 'css/profile.css' %}" rel="stylesheet">
+  <script src="{% static 'js/jquery.bullseye-1.0-min.js' %}"></script>
+{% endblock head %}
+
+{% block main %}
+ <div class="page-header">
+    <a href="{% url 'user_profile:update_profile' user_id %}">{% trans 'Edit' %}</a>
+  </div>
+  <div class="profile">
+    <div class="row">
+
+      <div class="col-md-9">
+        <h4>{{ user.username }}</h4>
+          <p>{% trans 'Your are the' %} {{ user.id }} {% trans 'user.' %}</p>
+          <p>{% trans 'Last login at' %} {{ user.last_login }} .</p>
+        <div class="stream-update">
+        </div>
+        <div class="load">
+          <img style="height:12%" src="{{MEDIA_URL}}{{profile.avatar.url}}" alt="" class="img-circle img-responsive">
+
+        </div>
+          <div class="float-right">
+            <ul>
+                <li>url: {{ profile.url }}</li>
+                <li>location: {{ profile.location }}</li>
+                <li>job: {{ profile.job_title }}</li>
+            </ul>
+        </div>
+    </div>
+  </div>
+
+{% endblock main %}

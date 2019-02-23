@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block title %} Community > {{ user.username }} {% endblock %}
+
+{% block head %}
+  <link href="{% static 'css/profile.css' %}" rel="stylesheet">
+{#  <link href="{% static 'css/feeds.css' %}" rel="stylesheet">#}
+  <script src="{% static 'js/jquery.bullseye-1.0-min.js' %}"></script>
+{#  <script src="{% static 'js/feeds.js' %}"></script>#}
+{% endblock head %}
+
+{% block main %}
+  <div class="page-header">
+    <h1>{{ page_user.profile.get_screen_name }} {% if page_user.get_full_name %}<small>({{ page_user.username }})</small>{% endif %}</h1>
+  </div>
+  <div class="profile">
+    <div class="row">
+      <div class="col-md-9">
+        <h4>{{ user.username }}</h4>
+          <p>{% trans 'Your are the' %} {{ user.id }} {% trans 'user.' %}</p>
+          <p>{% trans 'Last login at' %} {{ user.last_login }} .</p>
+        <div class="stream-update">
+{#          <a href="#"><span class="new-posts"></span> new posts</a>#}
+        </div>
+        <div class="load">
+          <img style="height:12%" src="{{MEDIA_URL}}{{profile.avatar.url}}" alt="" class="img-circle img-responsive">
+        </div>
+        <form method="post" novalidate>
+            {% csrf_token %}
+            {{ form | crispy }}
+            <button type="submit" class="btn btn-primary btn-lg">{% trans 'Update profile' %}</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock main %}

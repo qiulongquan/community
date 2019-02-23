@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load staticfiles %}
+{% load humanize %}
+
+{% block head %}
+    <link href="{% static 'css/questions.css' %}" rel="stylesheet">
+    <script src="{% static 'js/questions.js' %}"></script>
+{% endblock head %}
+
+{% block main %}
+    <ol class="breadcrumb">
+        <li><a href="{% url 'questions:question_list' %}">{% trans "Questions" %}</a></li>
+        <li class="active">{% trans "Question" %}</li>
+    </ol>
+    <div class="row question" question-id="{{ question.id }}">
+        {% csrf_token %}
+        <div class="col-md-11">
+            <h2>{{ question.title }}</h2>
+
+            <div class="question-user">
+                <a href="{% url 'user_profile:profile' question.user.id %}"><img src="{% static 'img/user.png' %}"
+                                                                          class="user"></a>
+                <small class="asked">{% trans 'asked' %} {{ question.update_date|naturaltime }}</small>
+            </div>
+            <div class="question-description">
+                {{ question.get_description_as_markdown|safe }}
+            </div>
+            {% if question.get_tag_list %}
+                <p>
+                    {% for tag in question.get_tag_list %}
+                        <span class="label label-primary">{{ tag }}</span>
+                    {% endfor %}
+                </p>
+            {% endif %}
+        </div>
+    </div>
+    <h4 class="page-header">{% trans 'Answers' %}</h4>
+    <div class="answers">
+        {% for answer in question.get_answers %}
+            {% include 'questions/answers_list.html' with answer=answer %}
+        {% endfor %}
+        {% if not user.is_anonymous %}
+            <h4>{% trans 'Write your Answer' %}</h4>
+            {% include 'questions/create_answer.html' with question=question user=user %}
+        {% endif %}
+    </div>
+{% endblock main %}

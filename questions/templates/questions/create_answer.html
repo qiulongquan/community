@@ -1,0 +1,13 @@
+{% load i18n %}
+{% load staticfiles %}
+{% load humanize %}
+
+<form action="{% url 'questions:answer_add' question.id %}" method="POST" role="form">
+    {% csrf_token %}
+    <div class="form-group">
+        {{ form.description }}
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">{% trans "Post Your Answer" %}</button>
+    </div>
+</form>

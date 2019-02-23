@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load humanize %}
+{% load staticfiles %}
+
+{% block title %} Search {% endblock %}
+
+{% block head %}
+  <link href="{% static 'css/search.css' %}" rel="stylesheet">
+  <script src="{% static 'js/search.js' %}"></script>
+{% endblock head %}
+
+{% block main %}
+
+  <div class="page-header">
+    <div class="row">
+      <div class="col-md-3">
+        <h1>{% trans 'Search' %}</h1>
+      </div>
+      <div class="col-md-9">
+      </div>
+    </div>
+  </div>
+  <div class="row results">
+    <div class="col-md-9">
+     <h2>{% trans 'Questions' %}</h2>
+        {% if results %}
+            <ul class="questions-results">
+            {% for question in results %}
+                <li question-id="{{ question.pk }}">
+                    <h5>
+                        <img src="{{ question.user.profile.get_picture }}" class="result-user">
+                        <a href="{% url 'user_profile:profile' question.user.id %}">
+                            {{ question.user.username }}
+                        </a>
+                        <small>{% trans 'asked' %} {{ question.create_date|naturaltime }}</small>
+                    </h5>
+                    <h4><a href="{% url 'questions:question_detail' question.pk %}">{{ question.title }}</a></h4>
+                    <div class="question-description">
+                        {{ question.get_description_preview_as_markdown|safe }}
+                    </div>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <h4 class="no-result">{% trans 'No question found' %} :(</h4>
+        {% endif %}
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block title %}{% trans 'Questions' %}{% endblock %}
+
+{% block head %}
+    <link href="{% static 'css/questions.css' %}" rel="stylesheet">
+    <script src="{% static 'js/questions.js' %}"></script>
+{% endblock head %}
+
+{% block main %}
+    <div class="page-header">
+        {% if not user.is_anonymous %}
+            <a href="{% url 'questions:question_add' %}" class="btn btn-primary pull-right">
+                <span class="glyphicon glyphicon-bullhorn"></span> {% trans "Ask Question" %}
+            </a>
+        {% endif %}
+        <h1>{% trans "Questions" %}</h1>
+    </div>
+    <div class="questions">
+        {% for question in questions %}
+            <a href="{% url 'questions:question_detail' question.id %}"> {{ question.title }} </a>
+            {% if question.update_date != question.create_date %}
+                <p>{% trans 'update at' %} {{ question.update_date }}</p>
+            {% else %}
+                <p>{% trans 'create at' %} {{ question.create_date }}</p>
+            {% endif %}
+        {% empty %}
+            <a>No questions now.</a>
+        {% endfor %}
+
+        {% if is_paginated %}
+            <div class="pagination">
+                <span class="page-link">
+                    {% if page_obj.has_previous %}
+                        <a href="/questions?page={{ page_obj.previous_page_number }}">previous</a>
+                    {% endif %}
+                <span class="page-current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                </span>
+                {% if page_obj.has_next %}
+                    <a href="/questions?page={{ page_obj.next_page_number }}">next</a>
+                {% endif %}
+                </span>
+            </div>
+        {% endif %}
+
+
+    </div>
+{% endblock main %}

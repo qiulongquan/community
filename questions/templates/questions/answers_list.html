@@ -1,0 +1,17 @@
+{% load i18n %}
+{% load humanize %}
+{% load staticfiles %}
+
+<div class="row answer" answer-id="{{ answer.id }}">
+    <div class="col-md-11">
+        <div class="answer-user">
+{#            <a><img src="{{ answer.user.get_picture }}" class="user-picture"></a>#}
+            <a><img src="{% static 'img/user.png' %}" class="user"></a>
+            <a href="{% url 'user_profile:profile' answer.user.id %}">{{ answer.user.username }}</a>
+            <small class="answered">{% trans "answered" %} {{ answer.create_date|naturaltime }}</small>
+        </div>
+        <div class="answer-description">
+            {{ answer.get_description_as_markdown|safe }}
+        </div>
+    </div>
+</div>

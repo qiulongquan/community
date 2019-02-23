@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'authentication',
     'crispy_forms',
     'user_profile',
+    'questions',
+    'django.contrib.humanize',
+    'search',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -164,3 +167,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
