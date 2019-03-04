@@ -11,15 +11,15 @@
 - 本地环境下已经可以运行程序<br>
 数据库采用的aws的rds
 
-首先分析代码<br>
+- 首先分析代码<br>
 然后添加自己喜欢的功能  尽量实用化<br>
 
-django ImageField使用
-不能更新图片的原因 
-profile = form.save(commit=False)
+- django ImageField使用
+  - 不能更新图片的原因 
+  - profile = form.save(commit=False)
 我推测是表格更新图片后，form里面没有跟新 cleaned_data字段 为什么form的cleaned_data字段没有更新？
 所以profile里面也没有更新  数据库里面也没有更新
 
-加入djcelery 功能<br>
+- 加入djcelery 功能<br>
 python+django+djcelery 入门级踩坑
 https://blog.csdn.net/michael_lbs/article/details/74923367
