@@ -2,6 +2,7 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="{% get_current_language as LANGUAGE_CODE %}">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,6 +15,7 @@
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     {% block head %}
     {% endblock head %}
+
 </head>
 <body>
 {% block body %}
@@ -27,7 +29,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{% url 'questions:question_list' %}">Community</a>
+                    <a class="navbar-brand" href="{% url 'questions:question_list' %}">Community_qlq</a>
                 </div>
                 <div class="collapse navbar-collapse" id="menu">
                     <ul class="nav navbar-nav">

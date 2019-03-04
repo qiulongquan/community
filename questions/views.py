@@ -52,6 +52,8 @@ class QuestionDetailView(CreateView):
         question_id = self.kwargs.get('pk')
         question = Question.objects.get(pk=question_id)
         kwargs['question'] = question
+        print("type=" + str(type(question)))
+        print("question="+str(question))
         if Answer.objects.filter(question=question):
             kwargs['answers'] = Answer.objects.filter(question=question)
 
@@ -61,6 +63,7 @@ class QuestionDetailView(CreateView):
 @login_required
 def create_answer(request, pk):
     if request.method == 'POST':
+        # 这句话需要debug一下 看一下是不是通过request.POST参数把页面的内容提交了过来
         form = AnswerForm(request.POST)
         if form.is_valid():
             answer = Answer()
