@@ -28,6 +28,8 @@
               <caret line="24" column="6" lean-forward="false" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
+                <marker date="1551969754475" expanded="true" signature="649:863" ph="..." />
+                <marker date="1551969754475" expanded="true" signature="807:863" ph="..." />
               </folding>
             </state>
           </provider>
@@ -46,9 +48,12 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/questions/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="72" column="25" lean-forward="false" selection-start-line="72" selection-start-column="25" selection-end-line="72" selection-end-column="25" />
-              <folding />
+            <state relative-caret-position="364">
+              <caret line="74" column="25" lean-forward="false" selection-start-line="74" selection-start-column="25" selection-end-line="74" selection-end-column="25" />
+              <folding>
+                <marker date="1551969754493" expanded="true" signature="1269:1601" ph="..." />
+                <marker date="1551969754493" expanded="true" signature="1454:1601" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -67,7 +72,7 @@
         <entry file="file://$PROJECT_DIR$/../kpi-batch/kpi-batch.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-6052">
-              <caret line="22" column="27" lean-forward="true" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
+              <caret line="22" column="27" lean-forward="false" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -161,7 +166,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="810" />
     <option name="y" value="11" />
     <option name="width" value="1052" />
@@ -186,6 +191,10 @@
       <pane id="ProjectPane">
         <subPane>
           <expand>
+            <path>
+              <item name="community" type="b2602c69:ProjectViewProjectNode" />
+              <item name="community" type="462c0819:PsiDirectoryNode" />
+            </path>
             <path>
               <item name="community" type="b2602c69:ProjectViewProjectNode" />
               <item name="kpi-batch" type="462c0819:PsiDirectoryNode" />
@@ -262,10 +271,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1168" extended-state="7" />
-    <editor active="true" />
+    <frame x="-9" y="-9" width="1938" height="1168" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2172973" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2172973" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -298,7 +306,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/questions/views.py</url>
-          <line>71</line>
+          <line>73</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -308,7 +316,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/questions/views.py</url>
-          <line>66</line>
+          <line>68</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>
@@ -606,7 +614,7 @@
         <state relative-caret-position="2340">
           <caret line="53" column="14" lean-forward="false" selection-start-line="53" selection-start-column="14" selection-end-line="53" selection-end-column="14" />
           <folding>
-            <element signature="e#310#319#0" expanded="true" />
+            <element signature="e#307#316#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -616,7 +624,7 @@
         <state relative-caret-position="2340">
           <caret line="52" column="8" lean-forward="false" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="41" />
           <folding>
-            <element signature="e#0#54#0" expanded="true" />
+            <element signature="e#0#54#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -659,6 +667,8 @@
           <caret line="24" column="6" lean-forward="false" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
+            <marker date="1551969754475" expanded="true" signature="649:863" ph="..." />
+            <marker date="1551969754475" expanded="true" signature="807:863" ph="..." />
           </folding>
         </state>
       </provider>
@@ -681,9 +691,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/questions/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="72" column="25" lean-forward="false" selection-start-line="72" selection-start-column="25" selection-end-line="72" selection-end-column="25" />
-          <folding />
+        <state relative-caret-position="364">
+          <caret line="74" column="25" lean-forward="false" selection-start-line="74" selection-start-column="25" selection-end-line="74" selection-end-column="25" />
+          <folding>
+            <marker date="1551969754493" expanded="true" signature="1269:1601" ph="..." />
+            <marker date="1551969754493" expanded="true" signature="1454:1601" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -698,7 +711,7 @@
     <entry file="file://$PROJECT_DIR$/../kpi-batch/kpi-batch.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-6052">
-          <caret line="22" column="27" lean-forward="true" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
+          <caret line="22" column="27" lean-forward="false" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
           <folding />
         </state>
       </provider>

@@ -27,7 +27,6 @@ class AnswerForm(forms.ModelForm):
         max_length=2000,
         widget=forms.Textarea(attrs={'class': 'form-control', 'rows': '4'})
     )
-
     class Meta:
         model = Answer
         fields = ['description']

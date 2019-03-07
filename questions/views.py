@@ -52,8 +52,10 @@ class QuestionDetailView(CreateView):
         question_id = self.kwargs.get('pk')
         question = Question.objects.get(pk=question_id)
         kwargs['question'] = question
-        print("type=" + str(type(question)))
+        
+        print("type="+str(type(question)))
         print("question="+str(question))
+
         if Answer.objects.filter(question=question):
             kwargs['answers'] = Answer.objects.filter(question=question)
 
@@ -72,6 +74,7 @@ def create_answer(request, pk):
             answer.description = form.cleaned_data.get('description')
             answer.save()
             messages.success(request, 'The answer was created with success!')
+            print("The answer was created with success!")
             return redirect('questions:question_detail', answer.question.pk)
     else:
         form = AnswerForm()
