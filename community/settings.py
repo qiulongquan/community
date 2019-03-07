@@ -89,27 +89,27 @@ WSGI_APPLICATION = 'community.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',  # 指定连接 MySQL
-        'NAME': 'mysql_community',  # 刚刚创建的数据库
-        'USER': 'root',  # 使用 root 账户
-        'PASSWORD': '123456abcABC',  # 因为实验楼环境中的 MySQL 没有密码，所以这里为空
-        'HOST': '127.0.0.1',
-        'PORT': '3306',  # MySQL 的固定端口号
-    }
-}
-
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',  # 指定连接 MySQL
-#         'NAME': 'ebdb',  # 刚刚创建的数据库
-#         'USER': 'qiulongquan',  # 使用 root 账户
-#         'PASSWORD': '123456abc',  # 因为实验楼环境中的 MySQL 没有密码，所以这里为空
-#         'HOST': 'aal90r2pyvrq9e.cqnfpkbdck9a.ap-northeast-1.rds.amazonaws.com',
+#         'NAME': 'mysql_community',  # 刚刚创建的数据库
+#         'USER': 'root',  # 使用 root 账户
+#         'PASSWORD': '123456abcABC',  # 因为实验楼环境中的 MySQL 没有密码，所以这里为空
+#         'HOST': '127.0.0.1',
 #         'PORT': '3306',  # MySQL 的固定端口号
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',  # 指定连接 MySQL
+        'NAME': 'ebdb',  # 刚刚创建的数据库
+        'USER': 'qiulongquan',  # 使用 root 账户
+        'PASSWORD': '123456abc',  # 因为实验楼环境中的 MySQL 没有密码，所以这里为空
+        'HOST': 'aal90r2pyvrq9e.cqnfpkbdck9a.ap-northeast-1.rds.amazonaws.com',
+        'PORT': '3306',  # MySQL 的固定端口号
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
