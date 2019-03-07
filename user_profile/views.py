@@ -52,7 +52,7 @@ class UpdateProfileView(UpdateView):
         """
         profile = form.save(commit=False)
         profile.save()
-        form.save_m2m()
+        form.save_m2m()     # 这一步是写入数据库
         return redirect('user_profile:profile', self.kwargs.get('user_id'))
 
     def get_success_url(self):

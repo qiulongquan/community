@@ -4,6 +4,7 @@ from django.views.generic import CreateView
 
 from .models import User
 from .forms import SignUpForm
+import logging,traceback, pprint
 
 
 class UserSignupView(CreateView):
@@ -13,6 +14,8 @@ class UserSignupView(CreateView):
     model = User
     form_class = SignUpForm
     template_name = 'authentication/signup.html'
+
+    logging.debug("A log message")
 
     def form_valid(self, form):
         """
