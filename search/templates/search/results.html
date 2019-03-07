@@ -23,10 +23,10 @@
   </div>
   <div class="row results">
     <div class="col-md-9">
-     <h2>{% trans 'Questions' %}</h2>
-        {% if results %}
+     <h2>{% trans 'Questions include key' %}</h2>
+        {% if results_q %}
             <ul class="questions-results">
-            {% for question in results %}
+            {% for question in results_q %}
                 <li question-id="{{ question.pk }}">
                     <h5>
                         <img src="{{ question.user.profile.get_picture }}" class="result-user">
@@ -44,6 +44,29 @@
             </ul>
         {% else %}
             <h4 class="no-result">{% trans 'No question found' %} :(</h4>
+        {% endif %}
+
+     <h2>{% trans 'Answer include key' %}</h2>
+        {% if results_a %}
+            <ul class="questions-results">
+            {% for answer in results_a %}
+                <li question-id="{{ answer.question.pk }}">
+                    <h5>
+                        <img src="{{ answer.user.profile.get_picture }}" class="result-user">
+                        <a href="{% url 'user_profile:profile' answer.user.id %}">
+                            {{ answer.user.username }}
+                        </a>
+                        <small>{% trans 'replied' %} {{ answer.create_date|naturaltime }}</small>
+                    </h5>
+                    <h4><a href="{% url 'questions:question_detail' answer.question.pk %}">{{ answer.question.title }}</a></h4>
+                    <div class="question-description">
+                        {{ answer.question.get_description_preview_as_markdown|safe }}
+                    </div>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <h4 class="no-result">{% trans 'No answer found' %} :(</h4>
         {% endif %}
     </div>
   </div>
