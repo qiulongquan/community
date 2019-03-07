@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/community.iml" filepath="$PROJECT_DIR$/.idea/community.iml" />
       <module fileurl="file://$PROJECT_DIR$/../community5/.idea/community5.iml" filepath="$PROJECT_DIR$/../community5/.idea/community5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../kpi-batch/.idea/kpi-batch.iml" filepath="$PROJECT_DIR$/../kpi-batch/.idea/kpi-batch.iml" />
     </modules>
   </component>
 </project>
