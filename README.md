@@ -23,16 +23,15 @@
   - https://blog.csdn.net/mazhibinit/article/details/49667511
   - 已经解决
 ```  
-            {#enctype="multipart/form-data"文件编码方式，必须设置，否则文件无法上传#}
-            <form method="post" enctype="multipart/form-data">
+        {#enctype="multipart/form-data"文件编码方式，必须设置，否则文件无法上传#}
+        <form method="post" enctype="multipart/form-data">
 ```
  - 加入djcelery 功能<br>
-python+django+djcelery 入门级踩坑
-https://blog.csdn.net/michael_lbs/article/details/74923367
-djcelery（django、celery）实现定时任务
-https://blog.csdn.net/weixin_33127753/article/details/84836885
-  - 已经解决
-    - 基本功能实现
+python+django+djcelery 入门级踩坑<br>
+https://blog.csdn.net/michael_lbs/article/details/74923367<br>
+djcelery（django、celery）实现定时任务<br>
+https://blog.csdn.net/weixin_33127753/article/details/84836885<br>
+  - 已经解决 基本功能实现
 	- 先安装celery 然后安装redis（2.10）版本，不要安装高版本会有问题。
 	- 然后安装redis-server  3.2.100
 	- https://github.com/MicrosoftArchive/redis/releases
