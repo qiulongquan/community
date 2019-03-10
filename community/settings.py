@@ -7,12 +7,42 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
+#celery setting
+import djcelery
+djcelery.setup_loader()     #加载djcelery
+
 import os
 import logging
+from celery import platforms
+from celery.schedules import crontab
+
+#broker是代理人，它负责分发任务给worker去执行
+BROKER_URL = 'redis://127.0.0.1:6379/0'    #Broker使用Redis, 使用0数据库(暂时不是很清楚原理)
+CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379/1'
+#导入目标任务文件
+CELERY_IMPORTS = ('authentication.tasks',)
+
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_ENABLE_UTC = False
+
+
+#设置时区
+CELERY_TIMEZONE = 'Asia/Tokyo'
+## 定时任务调度器,表示使用了django-celery默认的数据库调度模型,任务执行周期都被存在默认指定的orm数据库中．
+CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
+
+platforms.C_FORCE_ROOT = True
+CELERYBEAT_SCHEDULE = {
+    'celery_test': {
+        "task": "authentication.tasks.celery_test",
+        "schedule": crontab(minute='*/1', hour='*'),
+        "args": (),
+    },
+}
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -42,6 +72,7 @@ INSTALLED_APPS = [
     'questions',
     'django.contrib.humanize',
     'search',
+    'djcelery',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -89,27 +120,27 @@ WSGI_APPLICATION = 'community.wsgi.application'
 #     }
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',  # 指定连接 MySQL
-#         'NAME': 'mysql_community',  # 刚刚创建的数据库
-#         'USER': 'root',  # 使用 root 账户
-#         'PASSWORD': '123456abcABC',  # 因为实验楼环境中的 MySQL 没有密码，所以这里为空
-#         'HOST': '127.0.0.1',
-#         'PORT': '3306',  # MySQL 的固定端口号
-#     }
-# }
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  # 指定连接 MySQL
-        'NAME': 'ebdb',  # 刚刚创建的数据库
-        'USER': 'qiulongquan',  # 使用 root 账户
+        'NAME': 'mysql_community',  # 刚刚创建的数据库
+        'USER': 'root',  # 使用 root 账户
         'PASSWORD': '123456abc',  # 因为实验楼环境中的 MySQL 没有密码，所以这里为空
-        'HOST': 'aal90r2pyvrq9e.cqnfpkbdck9a.ap-northeast-1.rds.amazonaws.com',
+        'HOST': '127.0.0.1',
         'PORT': '3306',  # MySQL 的固定端口号
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',  # 指定连接 MySQL
+#         'NAME': 'ebdb',  # 刚刚创建的数据库
+#         'USER': 'qiulongquan',  # 使用 root 账户
+#         'PASSWORD': '123456abc',  # 因为实验楼环境中的 MySQL 没有密码，所以这里为空
+#         'HOST': 'aal90r2pyvrq9e.cqnfpkbdck9a.ap-northeast-1.rds.amazonaws.com',
+#         'PORT': '3306',  # MySQL 的固定端口号
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators

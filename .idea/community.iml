@@ -6,5 +6,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="community5" />
     <orderEntry type="module" module-name="kpi-batch" />
+    <orderEntry type="module" module-name="ImageField" />
+    <orderEntry type="module" module-name="test_celery" />
   </component>
 </module>

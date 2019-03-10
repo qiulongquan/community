@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../ImageField/.idea/ImageField.iml" filepath="$PROJECT_DIR$/../ImageField/.idea/ImageField.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/community.iml" filepath="$PROJECT_DIR$/.idea/community.iml" />
       <module fileurl="file://$PROJECT_DIR$/../community5/.idea/community5.iml" filepath="$PROJECT_DIR$/../community5/.idea/community5.iml" />
       <module fileurl="file://$PROJECT_DIR$/../kpi-batch/.idea/kpi-batch.iml" filepath="$PROJECT_DIR$/../kpi-batch/.idea/kpi-batch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../test_celery/.idea/test_celery.iml" filepath="$PROJECT_DIR$/../test_celery/.idea/test_celery.iml" />
     </modules>
   </component>
 </project>

@@ -36,7 +36,14 @@ class UpdateProfileView(UpdateView):
     """
     model = Profile
     fields = ['avatar', 'url', 'location', 'job_title']
+    # fields = "__all__"
     template_name = 'user_profile/profile_update.html'
+    error_messages = {
+        'myfile': {
+            'invalid_image': '请上传正确格式的图片！'
+        }
+
+    }
 
     def get_object(self, queryset=None):
         """
@@ -51,8 +58,8 @@ class UpdateProfileView(UpdateView):
         Do something before save the profile.
         """
         profile = form.save(commit=False)
-        profile.save()
-        form.save_m2m()     # 这一步是写入数据库
+        profile.save()      # 这一步是写入数据库 图片文件上传到指定文件夹
+        form.save_m2m()
         return redirect('user_profile:profile', self.kwargs.get('user_id'))
 
     def get_success_url(self):
