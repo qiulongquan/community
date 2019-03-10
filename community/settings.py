@@ -18,14 +18,13 @@ from celery.schedules import crontab
 
 #broker是代理人，它负责分发任务给worker去执行
 BROKER_URL = 'redis://127.0.0.1:6379/0'    #Broker使用Redis, 使用0数据库(暂时不是很清楚原理)
-CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379/1'
+CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend'
 #导入目标任务文件
 CELERY_IMPORTS = ('authentication.tasks',)
 
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_ENABLE_UTC = False
-
 
 #设置时区
 CELERY_TIMEZONE = 'Asia/Tokyo'
